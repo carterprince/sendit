@@ -6,6 +6,7 @@ A CLI-tool to send DMs on discord without opening your client
 ```bash
 git clone https://github.com/carterprince/sendit
 cd sendit
+go get
 make
 ```
 
