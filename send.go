@@ -31,7 +31,7 @@ func main() {
 	sent := false
 	channels, err := s.PrivateChannels();
 	for i := 0; i < len(channels); i++ {
-		if channels[i].DMRecipients[0].Username == username {
+		if strings.ToLower(channels[i].DMRecipients[0].Username) == strings.ToLower(username) { // lowercase match
 			s.SendMessage(channels[i].ID, content, nil)
 			sent = true
 			break
