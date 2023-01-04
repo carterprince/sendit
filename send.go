@@ -7,23 +7,22 @@ import (
 	"flag"
 	"strings"
 
-	//"github.com/diamondburned/arikawa/gateway"
 	"github.com/diamondburned/arikawa/session"
 )
 
 func main() {
-    flag.Parse()
+	flag.Parse()
 
-    if flag.NArg() < 2 {
-        fmt.Println("Error: incorrect number of arguments")
-        return
-    }
+	if flag.NArg() < 2 {
+		fmt.Println("Error: incorrect number of arguments")
+		return
+	}
 
-    username := flag.Arg(0)
-    content := strings.Join(flag.Args()[1:], " ")
+	username := flag.Arg(0)
+	content := strings.Join(flag.Args()[1:], " ")
 
-	fmt.Println(username)
-	fmt.Println(content)
+	//fmt.Println(username)
+	//fmt.Println(content)
 
 	var token = os.Getenv("DISCORD_TOKEN")
 	s, err := session.New(token)
@@ -39,11 +38,10 @@ func main() {
 		}
 	}
 	if sent {
-		fmt.Printf("Sent '"+content+"' to "+username+"\n")
+		fmt.Printf("Sent '%s' to %s\n", content, username)
+		os.Exit(0)
 	} else {
 		fmt.Println("Failed to send")
+		os.Exit(1)
 	}
-
-	if err := s.Open(); err != nil { log.Fatalln("Failed to connect:", err) }
-	defer s.Close()
 }
