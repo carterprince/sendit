@@ -17,5 +17,9 @@ Put your discord token in your shell profile as `DISCORD_TOKEN`.
 Ex:
 
 ```
+send Username your message here
+```
+
+```
 send "User name" your message here
 ```
